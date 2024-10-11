@@ -22,12 +22,14 @@ function App() {
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <Header onThemeChange={handleThemeChange} isDarkMode={isDarkMode} />
-      <Profile />
-      <Experience />
-      <Education />
-      <Projects />
-      <Contact />
-      <Footer />
+      <div style={{ paddingTop: '64px' }}>
+        <Profile />
+        <Experience />
+        <Education />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 }

@@ -15,17 +15,31 @@ import Section from './Section';
 
 const experiences = [
   {
-    company: 'Entreprise A',
+    company: 'Thales SIX',
     logo: 'assets/logos/entreprise-a.png', // Chemin vers le logo
-    period: 'Janvier 2020 - Présent',
-    role: 'Ingénieur systèmes embarqués',
+    period: 'Septembre 2021 - Septembre 2024',
+    role: 'Apprenti ingénieur systèmes radios HF',
     description: 'Description de vos responsabilités et réalisations chez Entreprise A.',
   },
   {
-    company: 'Entreprise B',
+    company: 'NTNU',
+    logo: 'assets/logos/entreprise-a.png', // Chemin vers le logo
+    period: 'Mai 2024 - Aout 2024',
+    role: 'Ingénieur stagiaire logiciel embarqué',
+    description: 'Description de vos responsabilités et réalisations chez Entreprise A.',
+  },
+  {
+    company: 'Thales DMS',
     logo: 'assets/logos/entreprise-b.png',
-    period: 'Juin 2018 - Décembre 2019',
-    role: 'Stagiaire en systèmes embarqués',
+    period: 'Avril 2021 - Aout 2021',
+    role: 'Technicien stagiaire prototypage electronique ',
+    description: 'Description de vos responsabilités et réalisations chez Entreprise B.',
+  },
+  {
+    company: 'Thales DMS',
+    logo: 'assets/logos/entreprise-b.png',
+    period: 'Avril 2021 - Aout 2021',
+    role: 'Technicien stagiaire prototypage electronique ',
     description: 'Description de vos responsabilités et réalisations chez Entreprise B.',
   },
   // Ajoutez d'autres expériences ici
@@ -36,7 +50,7 @@ function Experience() {
 
   return (
     <Section id="experience">
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: 'center' }}>
         Expérience Professionnelle
       </Typography>
       <Timeline position="alternate">

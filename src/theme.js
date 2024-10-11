@@ -1,7 +1,23 @@
 // src/theme.js
 import { createTheme } from '@mui/material/styles';
 
+const commonThemeSettings = {
+  typography: {
+    fontFamily: 'Montserrat, Roboto, Arial, sans-serif',
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          transition: 'background-color 0.5s ease, color 0.5s ease',
+        },
+      },
+    },
+  },
+};
+
 export const lightTheme = createTheme({
+  ...commonThemeSettings,
   palette: {
     mode: 'light',
     primary: {
@@ -17,12 +33,10 @@ export const lightTheme = createTheme({
       primary: '#343434', // Gris foncé
     },
   },
-  typography: {
-    fontFamily: 'Montserrat, Roboto, Arial, sans-serif',
-  },
 });
 
 export const darkTheme = createTheme({
+  ...commonThemeSettings,
   palette: {
     mode: 'dark',
     primary: {
@@ -37,8 +51,5 @@ export const darkTheme = createTheme({
     text: {
       primary: '#ffffff', // Blanc
     },
-  },
-  typography: {
-    fontFamily: 'Montserrat, Roboto, Arial, sans-serif',
   },
 });

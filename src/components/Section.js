@@ -3,7 +3,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
-function Section({ children, id }) {
+function Section({ children, id, style, noMarginTop }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -14,8 +14,13 @@ function Section({ children, id }) {
     visible: { opacity: 1, y: 0 },
   };
 
+  const sectionStyle = {
+    marginTop: noMarginTop ? 0 : '6rem',
+    ...style,
+  };
+
   return (
-    <section id={id} ref={ref} style={{ marginTop: '6rem' }}>
+    <section id={id} ref={ref} style={sectionStyle}>
       <motion.div
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
