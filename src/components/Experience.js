@@ -21,28 +21,45 @@ const experiences = [
     logo: logo1,
     period: 'Septembre 2021 - Septembre 2024',
     role: 'Apprenti ingénieur systèmes radios HF',
-    description: 'Description de vos responsabilités et réalisations chez Entreprise A.',
+    description: [
+      'Développement dun simulateur en python permettant démuler le comportement d’un algorithme intégré dans un poste de radio',
+      'Parsage XML de fichiers Syslog (data en sortie des postes) et analyse de données',
+      'Modélisation dun système (mise en réseau de plusieurs postes radios) via le logiciel de modélisation Capella basé sur la méthode MBSE',
+      'Découvertes et approfondissement des langages de programmation Python, Script Bash',
+      'Découvertes et utilisations d’outils et de technologies utilisés en entreprise Git, Agilité, LaTex',
+    ],
   },
   {
     company: 'NTNU',
     logo: logo2,
     period: 'Mai 2024 - Aout 2024',
     role: 'Ingénieur stagiaire logiciel embarqué',
-    description: 'Description de vos responsabilités et réalisations chez Entreprise A.',
+    description: [
+      'Prototypage d’un casque EEG avec deux électrodes mobiles',
+      'IHM de contrôle et d’analyse en PyQt et Firmware du casque en C++ embarqué',
+      'Amélioration d’un code existant pour contrôler un drone par la pensée',],
   },
   {
     company: 'Thales DMS',
     logo: logo1,
     period: 'Avril 2021 - Aout 2021',
     role: 'Technicien stagiaire prototypage electronique ',
-    description: 'Description de vos responsabilités et réalisations chez Entreprise B.',
+    description: [
+      'Réalisation de schémas électroniques et de PCB (Eagle)',
+      'Documentation (datasheet) et recherche de composants performants',
+      'Soudure et phase de test',
+    ],
   },
   {
-    company: 'Thales DMS',
+    company: 'Grange du ToulBoss',
     logo: 'assets/logos/entreprise-b.png',
     period: 'Avril 2021 - Aout 2021',
-    role: 'Technicien stagiaire prototypage electronique ',
-    description: 'Description de vos responsabilités et réalisations chez Entreprise B.',
+    role: 'Crêpier en restauration',
+    description: [
+      'Responsable service crêpes',
+      'Gestion des stocks',
+      'Relationnel client',
+    ],
   },
 ];
 
@@ -102,9 +119,13 @@ function Experience() {
                   <Typography variant="subtitle1" color="text.secondary">
                     {exp.company}
                   </Typography>
-                  <Typography variant="body2" sx={{ mt: 1 }}>
-                    {exp.description}
-                  </Typography>
+                  <ul style={{ marginTop: '1rem', paddingLeft: '1.2rem' }}>
+                    {exp.description.map((item, idx) => (
+                      <li key={idx} style={{ marginBottom: '0.5rem' }}>
+                        <Typography variant="body2">{item}</Typography>
+                      </li>
+                    ))}
+                  </ul>
                 </Paper>
               </motion.div>
             </TimelineContent>
