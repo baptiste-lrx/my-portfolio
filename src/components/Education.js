@@ -12,32 +12,45 @@ import {
 } from '@mui/lab';
 import { motion } from 'framer-motion';
 import Section from './Section';
+import logo1 from '../assets/logos/enstab.jpg';
+import logo2 from '../assets/logos/iut.png';
+import logo3 from '../assets/logos/Lyceenaval.png';
 
 const education = [
   {
     institution: 'ENSTA Bretagne',
-    logo: 'assets/logos/universite-xyz.png',
+    logo: logo1,
     period: '2021 - 2024',
     degree: "Diplôme d'ingénieur en systèmes embarqués",
     description:[
-      'Cours avancés en électronique et informatique.',
-      'Projet de fin d\'études sur les systèmes de communication sans fil.',
-      'Participation à des compétitions robotiques.', 
+      'Informatique embarqué, IA, système d’exploitation, U-Boot, cross compilation...',
+      'Hyperfréquence, radiofréquence, radio logiciel, conception PCB et soudure...',
+      'Projets : Simulateur de jeu d’instruction (Python), CPU 32bits (FPGA), Langage danimation (Python) , Compilateur, Traitement du son (STM32, C++)', 
     ]
     },
   {
     institution: 'IUT Brest-Morlaix',
-    logo: 'assets/logos/lycee-abc.png',
+    logo: logo2,
     period: '2019 - 2021',
     degree: 'DUT génie electrique et informatique industrielle',
-    description: ['Mention Très Bien, spécialité mathématiques.'],
+    description: [
+      'Conception et mise en œuvre de systèmes électroniques analogiques et numériques',
+      'Mise en œuvre des chaines de linformation en télécommunication (2G)',
+      'Mesures classiques hautes-fréquences (oscilloscope, VNA)',
+      'CAO Altium, Eagle',
+    ],
   },
+  
   {
     institution: 'Lycée Naval',
-    logo: 'assets/logos/lycee-abc.png',
+    logo: logo3,
     period: '2016 - 2019',
     degree: 'Baccalauréat scientifique',
-    description: ['Mention, spécialité SVT.'],
+    description: [
+      'Mention, spécialité SVT.',
+      'Encadrement militaire',
+      'Initiation systèmes numériques'
+    ],
   },
 ];
 function Education() {
