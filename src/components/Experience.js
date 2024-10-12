@@ -12,11 +12,12 @@ import {
 } from '@mui/lab';
 import { motion } from 'framer-motion';
 import Section from './Section';
+import logo1 from '../assets/logos/thales.png';
 
 const experiences = [
   {
     company: 'Thales SIX',
-    logo: 'assets/logos/entreprise-a.png', // Chemin vers le logo
+    logo: logo1, // Chemin vers le logo
     period: 'Septembre 2021 - Septembre 2024',
     role: 'Apprenti ingénieur systèmes radios HF',
     description: 'Description de vos responsabilités et réalisations chez Entreprise A.',
@@ -30,7 +31,7 @@ const experiences = [
   },
   {
     company: 'Thales DMS',
-    logo: 'assets/logos/entreprise-b.png',
+    logo: logo1,
     period: 'Avril 2021 - Aout 2021',
     role: 'Technicien stagiaire prototypage electronique ',
     description: 'Description de vos responsabilités et réalisations chez Entreprise B.',

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Typography, Avatar, Grid, useTheme, Box } from '@mui/material';
 import Section from './Section';
+import profil from '../assets/profil/profil.jpeg'
 
 function Profile() {
   const theme = useTheme();
@@ -27,7 +28,7 @@ function Profile() {
         <Grid item>
           <Avatar
             alt="Votre Nom"
-            src="lien-vers-votre-photo.jpg"
+            src={profil}
             sx={{ width: 150, height: 150 }}
           />
         </Grid>
