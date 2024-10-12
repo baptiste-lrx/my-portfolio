@@ -13,18 +13,19 @@ import {
 import { motion } from 'framer-motion';
 import Section from './Section';
 import logo1 from '../assets/logos/thales.png';
+import logo2 from '../assets/logos/ntnu.png';
 
 const experiences = [
   {
     company: 'Thales SIX',
-    logo: logo1, // Chemin vers le logo
+    logo: logo1,
     period: 'Septembre 2021 - Septembre 2024',
     role: 'Apprenti ingénieur systèmes radios HF',
     description: 'Description de vos responsabilités et réalisations chez Entreprise A.',
   },
   {
     company: 'NTNU',
-    logo: 'assets/logos/entreprise-a.png', // Chemin vers le logo
+    logo: logo2,
     period: 'Mai 2024 - Aout 2024',
     role: 'Ingénieur stagiaire logiciel embarqué',
     description: 'Description de vos responsabilités et réalisations chez Entreprise A.',
@@ -43,7 +44,6 @@ const experiences = [
     role: 'Technicien stagiaire prototypage electronique ',
     description: 'Description de vos responsabilités et réalisations chez Entreprise B.',
   },
-  // Ajoutez d'autres expériences ici
 ];
 
 function Experience() {
