@@ -14,6 +14,7 @@ import { motion } from 'framer-motion';
 import Section from './Section';
 import logo1 from '../assets/logos/thales.png';
 import logo2 from '../assets/logos/ntnu.png';
+import logo3 from '../assets/logos/images.jpeg';
 
 const experiences = [
   {
@@ -52,7 +53,7 @@ const experiences = [
   },
   {
     company: 'Grange du ToulBoss',
-    logo: 'assets/logos/entreprise-b.png',
+    logo: logo3,
     period: 'Avril 2021 - Aout 2021',
     role: 'Crêpier en restauration',
     description: [
