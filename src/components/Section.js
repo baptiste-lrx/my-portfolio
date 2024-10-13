@@ -1,35 +1,24 @@
 // src/components/Section.js
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { Box } from '@mui/material';
 
-function Section({ children, id, style, noMarginTop }) {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+// Importation de l'image de fond SVG
 
-  const variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const sectionStyle = {
-    marginTop: noMarginTop ? 0 : '6rem',
-    ...style,
-  };
-
+function Section({ id, children, noMarginTop, sx = {}, disableDefaultBackground = false }) {
   return (
-    <section id={id} ref={ref} style={sectionStyle}>
-      <motion.div
-        initial="hidden"
-        animate={inView ? 'visible' : 'hidden'}
-        variants={variants}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-      >
-        {children}
-      </motion.div>
-    </section>
+    <Box
+      id={id}
+      component="section"
+      sx={{
+        paddingTop: noMarginTop ? 0 : '4rem',
+        paddingBottom: '4rem',
+        
+        position: 'relative',
+        ...sx, // Permet de surcharger ou d'ajouter des styles
+      }}
+    >
+      {children}
+    </Box>
   );
 }
 

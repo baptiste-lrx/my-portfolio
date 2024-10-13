@@ -109,7 +109,8 @@ function Experience() {
                 <Paper
                   elevation={3}
                   sx={{
-                    p: 2,
+                    padding: '2rem',
+                    marginBottom: '2rem',
                     backgroundColor: theme.palette.background.default,
                     color: theme.palette.text.primary,
                   }}

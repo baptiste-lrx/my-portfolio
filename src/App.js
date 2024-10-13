@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar'; // Assurez-vous d'avoir ce composant
 
@@ -21,28 +22,24 @@ function App() {
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <CssBaseline />
-      <Header onThemeChange={handleThemeChange} isDarkMode={isDarkMode} />
-      <div style={{ paddingTop: '64px' }}>
-        {/* Section Profil occupant toute la largeur */}
-        <Profile />
-
-        {/* La grille commence ici */}
-        <Grid container spacing={2} sx={{ marginTop: '2rem' }}>
+     <CssBaseline />
+      <Header />
+      <Profile />
+      <MainContent>
+        <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
-            {/* Contenu principal */}
+            {/* Sections principales */}
             <Experience />
             <Education />
             <Projects />
-            <Contact />
           </Grid>
           <Grid item xs={12} md={4}>
             {/* Sidebar */}
             <Sidebar />
           </Grid>
         </Grid>
-        <Footer />
-      </div>
+      </MainContent>
+      <Footer />
     </ThemeProvider>
   );
 }

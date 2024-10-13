@@ -2,33 +2,37 @@
 import React from 'react';
 import { Typography, Avatar, Grid, useTheme, Box } from '@mui/material';
 import Section from './Section';
-import profil from '../assets/profil/profil.jpeg'
+
+// Importation de l'image de fond (assurez-vous que le chemin est correct)
+import backgroundImage from '../assets/images/shley-tree-1-1920x1080.png'; // Remplacez par le chemin réel
+// Importation de votre photo de profil
+import profileImage from '../assets/profil/profil.jpeg'; // Remplacez par le chemin réel
 
 function Profile() {
   const theme = useTheme();
 
-  // Déterminer la couleur de fond en fonction du mode
-  const backgroundColor =
-    theme.palette.mode === 'light'
-      ? theme.palette.primary.main // Couleur bleue en mode clair
-      : theme.palette.background.paper; // Utilise #282424 en mode sombre
-
-  const textColor = theme.palette.getContrastText(backgroundColor);
+  const textColor = theme.palette.getContrastText(theme.palette.primary.main);
 
   return (
     <Section
       id="profile"
       noMarginTop
-      style={{
-        backgroundColor: backgroundColor,
+      sx={{
+        backgroundColor: '#103444',
+        //backgroundImage: `url(${backgroundImage})`,
+        //backgroundSize: 'cover',
+        //backgroundPosition: 'center',
+        //backgroundRepeat: 'no-repeat',
+        position: 'relative',
         padding: '6rem 0',
+        color: textColor,
       }}
     >
       <Grid container spacing={4} direction="column" alignItems="center">
         <Grid item>
           <Avatar
             alt="Votre Nom"
-            src={profil}
+            src={profileImage}
             sx={{ width: 150, height: 150 }}
           />
         </Grid>
@@ -37,16 +41,14 @@ function Profile() {
             variant="h3"
             gutterBottom
             sx={{
-              color: textColor,
               textAlign: 'center',
             }}
           >
-            Baptiste Le Roux
+            Votre Nom
           </Typography>
           <Typography
             variant="h5"
             sx={{
-              color: textColor,
               textAlign: 'center',
             }}
           >
@@ -56,17 +58,15 @@ function Profile() {
             variant="body1"
             sx={{
               marginTop: '2rem',
-              color: textColor,
               textAlign: 'center',
             }}
           >
-            Nouvellement diplômé avec trois ans d'expérience en apprentissage où j'ai acquis de solides compétences en programmation et en electronique.
+            [Brève description de vous-même.]
           </Typography>
           <Box sx={{ mt: 4 }}>
             <Typography
               variant="h6"
               sx={{
-                color: textColor,
                 fontStyle: 'italic',
                 textAlign: 'center',
               }}
@@ -76,7 +76,6 @@ function Profile() {
             <Typography
               variant="subtitle1"
               sx={{
-                color: textColor,
                 textAlign: 'center',
               }}
             >
