@@ -46,7 +46,7 @@ function Profile() {
         position: 'relative',
         backgroundColor: theme.palette.background.blue,
         padding: '6rem 2rem',
-        color: theme.palette.secondary.contrastText, // Texte blanc
+        color: theme.palette.secondary.contrastText,
         overflow: 'hidden',
       }}
     >
@@ -84,7 +84,7 @@ function Profile() {
               sx={{
                 width: { xs: 200, md: 250 },
                 height: { xs: 200, md: 250 },
-                border: `4px solid ${theme.palette.secondary.main}`, // Bordure blanche
+                border: `4px solid ${theme.palette.secondary.main}`,
                 boxShadow: theme.shadows[10],
                 transition: 'transform 0.3s ease-in-out',
                 margin: '0 auto',
@@ -106,7 +106,7 @@ function Profile() {
                 sx={{
                   textAlign: { xs: 'center', md: 'left' },
                   fontWeight: 700,
-                  color: theme.palette.secondary.main, // Texte blanc
+                  color: theme.palette.secondary.main,
                 }}
               >
                 Baptiste Le Roux
@@ -118,7 +118,7 @@ function Profile() {
                 variant="h5"
                 sx={{
                   textAlign: { xs: 'center', md: 'left' },
-                  color: theme.palette.secondary.main, // Texte blanc
+                  color: theme.palette.secondary.main,
                 }}
               >
                 Ingénieur en Systèmes Embarqués
@@ -131,7 +131,7 @@ function Profile() {
                 sx={{
                   marginTop: '2rem',
                   textAlign: { xs: 'center', md: 'left' },
-                  color: theme.palette.secondary.main, // Texte blanc
+                  color: theme.palette.secondary.main,
                 }}
               >
                 Passionné par le développement de systèmes embarqués et les technologies innovantes. Je possède une solide expérience dans la conception, le développement et l'optimisation de solutions embarquées pour divers secteurs. Toujours en quête de nouveaux défis, je m'efforce d'améliorer constamment mes compétences techniques et de contribuer efficacement aux projets de mon équipe.
@@ -145,7 +145,7 @@ function Profile() {
                   sx={{
                     fontStyle: 'italic',
                     textAlign: { xs: 'center', md: 'left' },
-                    color: theme.palette.secondary.main, // Texte blanc
+                    color: theme.palette.secondary.main,
                   }}
                 >
                   "Le vent se lève, il faut tenter de vivre."
@@ -154,7 +154,7 @@ function Profile() {
                   variant="subtitle1"
                   sx={{
                     textAlign: { xs: 'center', md: 'left' },
-                    color: theme.palette.secondary.main, // Texte blanc
+                    color: theme.palette.secondary.main,
                   }}
                 >
                   - Paul Valéry (popularisé par le film de Hayao Miyazaki)

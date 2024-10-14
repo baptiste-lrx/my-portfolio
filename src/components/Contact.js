@@ -1,7 +1,7 @@
 // src/components/Contact.js
 import React, { useState } from 'react';
 import { Typography, TextField, Button, Grid, Link, Box, Alert } from '@mui/material';
-import { useTheme } from '@mui/material/styles'; // Import de useTheme
+import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import Section from './Section';
 import EmailIcon from '@mui/icons-material/Email';
@@ -9,35 +9,29 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Contact() {
-  const theme = useTheme(); // Utilisation de useTheme pour accéder au thème
+  const theme = useTheme();
 
-  // État pour gérer les données du formulaire
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
-  // État pour gérer l'état de soumission du formulaire
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
-  // Variants pour les animations de champ de saisie
   const fieldVariants = {
     focus: { scale: 1.02, borderColor: theme.palette.primary.main },
   };
 
-  // Gestion des changements dans les champs du formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Gestion de la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation simple du formulaire
     if (!formData.name || !formData.email || !formData.message) {
       setError(true);
       return;
@@ -67,7 +61,7 @@ function Contact() {
         variant="h4"
         align="center"
         gutterBottom
-        sx={{ color: theme.palette.primary.main }} // Titre blanc
+        sx={{ color: theme.palette.primary.main }}
       >
         Contact
       </Typography>
@@ -75,7 +69,7 @@ function Contact() {
       {/* Description de la section */}
       <Typography
         variant="body1"
-        sx={{ mb: 4, textAlign: 'center', color: theme.palette.secondary.contrastText }} // Description blanche
+        sx={{ mb: 4, textAlign: 'center', color: theme.palette.secondary.contrastText }}
       >
         N'hésitez pas à me contacter pour plus d'informations ou pour discuter de projets potentiels.
       </Typography>
@@ -103,11 +97,11 @@ function Contact() {
                     InputProps={{
                       sx: { 
                         transition: 'transform 0.2s, border-color 0.2s',
-                        color: theme.palette.secondary.contrastText, // Texte blanc
+                        color: theme.palette.secondary.contrastText,
                       },
                     }}
                     InputLabelProps={{
-                      sx: { color: theme.palette.secondary.contrastText }, // Label blanc
+                      sx: { color: theme.palette.secondary.contrastText },
                     }}
                   />
                 </motion.div>
@@ -132,11 +126,11 @@ function Contact() {
                     InputProps={{
                       sx: { 
                         transition: 'transform 0.2s, border-color 0.2s',
-                        color: theme.palette.secondary.contrastText, // Texte blanc
+                        color: theme.palette.secondary.contrastText,
                       },
                     }}
                     InputLabelProps={{
-                      sx: { color: theme.palette.secondary.contrastText }, // Label blanc
+                      sx: { color: theme.palette.secondary.contrastText }, 
                     }}
                   />
                 </motion.div>
@@ -162,11 +156,11 @@ function Contact() {
                     InputProps={{
                       sx: { 
                         transition: 'transform 0.2s, border-color 0.2s',
-                        color: theme.palette.secondary.contrastText, // Texte blanc
+                        color: theme.palette.secondary.contrastText,
                       },
                     }}
                     InputLabelProps={{
-                      sx: { color: theme.palette.secondary.contrastText }, // Label blanc
+                      sx: { color: theme.palette.secondary.contrastText }, 
                     }}
                   />
                 </motion.div>
@@ -206,19 +200,19 @@ function Contact() {
         <Typography
           variant="h6"
           gutterBottom
-          sx={{ color: theme.palette.secondary.contrastText }} // Texte blanc
+          sx={{ color: theme.palette.secondary.contrastText }}
         >
           Retrouvez-moi sur
         </Typography>
         <Box>
-          <Link href="mailto:votre.email@example.com" target="_blank" rel="noopener" sx={{ mx: 1 }}>
-            <EmailIcon fontSize="large" color="primary" /> {/* Icône bleue */}
+          <Link href="bapt.leroux29@gmail.com" target="_blank" rel="noopener" sx={{ mx: 1 }}>
+            <EmailIcon fontSize="large" color="primary" />
           </Link>
-          <Link href="https://www.linkedin.com/in/votre-profil" target="_blank" rel="noopener" sx={{ mx: 1 }}>
-            <LinkedInIcon fontSize="large" color="primary" /> {/* Icône bleue */}
+          <Link href="https://www.linkedin.com/in/baptiste-le-roux" target="_blank" rel="noopener" sx={{ mx: 1 }}>
+            <LinkedInIcon fontSize="large" color="primary" />
           </Link>
-          <Link href="https://github.com/votre-utilisateur" target="_blank" rel="noopener" sx={{ mx: 1 }}>
-            <GitHubIcon fontSize="large" color="primary" /> {/* Icône bleue */}
+          <Link href="https://github.com/baptiste-lrx" target="_blank" rel="noopener" sx={{ mx: 1 }}>
+            <GitHubIcon fontSize="large" color="primary" />
           </Link>
         </Box>
       </Box>

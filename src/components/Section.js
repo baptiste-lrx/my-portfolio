@@ -2,8 +2,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-// Importation de l'image de fond SVG
-
 function Section({ id, children, noMarginTop, sx = {}, disableDefaultBackground = false }) {
   return (
     <Box
@@ -14,7 +12,7 @@ function Section({ id, children, noMarginTop, sx = {}, disableDefaultBackground 
         paddingBottom: '4rem',
         
         position: 'relative',
-        ...sx, // Permet de surcharger ou d'ajouter des styles
+        ...sx, 
       }}
     >
       {children}
