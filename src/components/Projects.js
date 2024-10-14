@@ -25,7 +25,7 @@ const projects = [
     link: 'https://github.com/Vidoux/SketchAnimate',
   },
   {
-    title: 'Création d\'chatbot spécialisé dans les relations humaines',
+    title: 'Création d\'un chatbot spécialisé dans les relations humaines',
     description: 'Le but de se projet est de voir jusqu\'ou peut on aller dans l\'entrainement d\'pour converser de manière informel',
     image: image3,
     link: 'https://github.com/votre-utilisateur/domotique-arduino',

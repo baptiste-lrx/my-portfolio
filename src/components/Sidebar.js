@@ -4,9 +4,9 @@ import { Box, Typography, Card, CardMedia, CardContent, Link } from '@mui/materi
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import image1 from '../assets/images/test4.png';
-import image2 from '../assets/images/test3.png';
-import image3 from '../assets/images/test5.png';
-import image4 from '../assets/images/test6.png';
+import image2 from '../assets/images/test5.png';
+import image3 from '../assets/images/test3.png';
+import image4 from '../assets/images/gr10.png';
 
 function Sidebar() {
   const theme = useTheme();
@@ -32,6 +32,7 @@ function Sidebar() {
       image: image4,
       link: 'https://lien-vers-revue-2.com',
     },
+
     // Ajoutez d'autres revues ici
   ];
 
