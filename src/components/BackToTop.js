@@ -7,30 +7,26 @@ function BackToTop() {
   const theme = useTheme();
   const [visible, setVisible] = useState(false);
 
-  // Fonction pour gérer la visibilité du bouton
   const handleScroll = () => {
-    if (window.pageYOffset > 300) { // Affiche le bouton après avoir défilé 300px
+    if (window.pageYOffset > 300) {
       setVisible(true);
     } else {
       setVisible(false);
     }
   };
 
-  // Ajouter l'écouteur d'événement de défilement
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Nettoyage de l'écouteur d'événement
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  // Fonction pour faire défiler la page vers le haut
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth', // Défilement fluide
+      behavior: 'smooth',
     });
   };
 
