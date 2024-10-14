@@ -3,13 +3,12 @@ import React from 'react';
 import { Box, Typography, Card, CardMedia, CardContent, Link } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-import image1 from '../assets/images/test2.png'; // Remplacez par le chemin réel
+import image1 from '../assets/images/test2.png';
 import image2 from '../assets/images/test3.png';
 
 function Sidebar() {
   const theme = useTheme();
 
-  // Données des revues
   const journals = [
     {
       title: 'Titre de la Revue 1',
@@ -32,14 +31,13 @@ function Sidebar() {
       link: 'https://lien-vers-revue-4.com',
     },
     {
-      title: 'Titre de la Revue 1',
+      title: 'Titre de la Revue 5',
       image: image1,
-      link: 'https://lien-vers-revue-1.com',
+      link: 'https://lien-vers-revue-5.com',
     },
     // Ajoutez d'autres revues ici
   ];
 
-  // Variantes pour les animations
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (custom) => ({
@@ -54,16 +52,16 @@ function Sidebar() {
     <Box
       sx={{
         padding: {
-          xs: '0.5rem', // Petite marge sur les petits écrans
+          xs: '0.5rem',
           sm: '1rem',
-          md: '1rem 4rem', // Top/Bot: 1rem, Left/Right: 4rem pour aligner avec MainContent
+          md: '1rem 4rem',
         },
         backgroundColor: theme.palette.background.paper,
         borderRadius: '8px',
         boxShadow: theme.shadows[3],
         marginRight: {
-          xs: '0', // Pas de marge sur les petits écrans
-          md: '2rem', // 2rem de marge sur les écrans moyens et grands
+          xs: '0',
+          md: '2rem',
         },
         transition: 'margin 0.3s ease-in-out, padding 0.3s ease-in-out',
       }}
@@ -71,7 +69,7 @@ function Sidebar() {
       <Typography
         variant="h5"
         gutterBottom
-        sx={{ color: '#183444', textAlign: 'center', marginBottom: '1.5rem' }}
+        sx={{ color: theme.palette.primary.main, textAlign: 'center', marginBottom: '1.5rem' }}
       >
         Revues
       </Typography>
@@ -91,10 +89,11 @@ function Sidebar() {
               sx={{
                 position: 'relative',
                 overflow: 'hidden',
-                width: '100%', // Occuper toute la largeur de la sidebar
+                width: '100%',
                 borderRadius: '8px',
                 boxShadow: theme.shadows[3],
                 transition: 'box-shadow 0.3s ease-in-out',
+                backgroundColor: theme.palette.background.default,
               }}
             >
               <CardMedia
@@ -103,7 +102,7 @@ function Sidebar() {
                 alt={`Image de la revue ${journal.title}`}
                 sx={{
                   width: '100%',
-                  height: 'auto', // Ajuster la hauteur automatiquement
+                  height: 'auto',
                   transition: 'transform 0.3s ease-in-out',
                 }}
               />
@@ -113,8 +112,8 @@ function Sidebar() {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  backgroundColor: 'rgba(24,52,68,0.7)',
-                  color: '#fff',
+                  backgroundColor: `rgba(24, 52, 68, 0.7)`, // Bleu foncé avec opacité
+                  color: theme.palette.secondary.contrastText, // Blanc
                   padding: '0.5rem',
                 }}
               >

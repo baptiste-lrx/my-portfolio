@@ -55,13 +55,23 @@ const education = [
 function Education() {
   const theme = useTheme();
 
+  const logoVariants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.2 } },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.4 } },
+  };
+
   return (
     <Section id="education">
       <Typography
         variant="h4"
         align="center"
         gutterBottom
-        sx={{ color: '#183444', marginBottom: '2rem' }}
+        sx={{ color: theme.palette.primary.main, marginBottom: '2rem' }}
       >
         Parcours Académique
       </Typography>
@@ -76,60 +86,61 @@ function Education() {
             >
               <Typography variant="subtitle2">{edu.period}</Typography>
             </TimelineOppositeContent>
+
             <TimelineSeparator>
               {index !== 0 && <TimelineConnector />}
               <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                variants={logoVariants}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <Box
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: 80, // Taille fixe pour le conteneur (augmentée)
+                    width: 80,
                     height: 80,
-                    margin: '0 auto', // Centrer horizontalement
+                    margin: '0 auto',
                   }}
                 >
                   <img
                     src={edu.logo}
                     alt={`Logo de ${edu.institution}`}
                     style={{
-                      width: '80%', // Ajuster la taille de l'image
-                      height: '80%',
-                      objectFit: 'contain', // S'assurer que l'image conserve son aspect ratio
+                      width: '90%',
+                      height: '90%',
+                      objectFit: 'contain',
                     }}
                   />
                 </Box>
               </motion.div>
               {index !== education.length - 1 && <TimelineConnector />}
             </TimelineSeparator>
+
             <TimelineContent sx={{ py: '12px', px: 2 }}>
               <motion.div
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={contentVariants}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <Paper
                   elevation={3}
                   sx={{
                     padding: '2rem',
                     marginBottom: '2rem',
-                    backgroundColor: theme.palette.background.default,
+                    backgroundColor: theme.palette.background.paper,
                     color: theme.palette.text.primary,
                   }}
                 >
-                  <Typography variant="h6" component="span">
+                  <Typography variant="h6" component="span" sx={{ color: theme.palette.primary.main }}>
                     {edu.degree}
                   </Typography>
                   <Typography variant="subtitle1" color="text.secondary">
                     {edu.institution}
                   </Typography>
-                  {/* Afficher la description sous forme de liste */}
                   <ul style={{ marginTop: '1rem', paddingLeft: '1.2rem' }}>
                     {edu.description.map((item, idx) => (
                       <li key={idx} style={{ marginBottom: '0.5rem' }}>

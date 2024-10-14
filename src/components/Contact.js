@@ -1,6 +1,7 @@
 // src/components/Contact.js
 import React, { useState } from 'react';
 import { Typography, TextField, Button, Grid, Link, Box, Alert } from '@mui/material';
+import { useTheme } from '@mui/material/styles'; // Import de useTheme
 import { motion } from 'framer-motion';
 import Section from './Section';
 import EmailIcon from '@mui/icons-material/Email';
@@ -8,6 +9,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Contact() {
+  const theme = useTheme(); // Utilisation de useTheme pour accéder au thème
+
   // État pour gérer les données du formulaire
   const [formData, setFormData] = useState({
     name: '',
@@ -21,7 +24,7 @@ function Contact() {
 
   // Variants pour les animations de champ de saisie
   const fieldVariants = {
-    focus: { scale: 1.02, borderColor: '#0D47A1' },
+    focus: { scale: 1.02, borderColor: theme.palette.primary.main },
   };
 
   // Gestion des changements dans les champs du formulaire
@@ -40,11 +43,8 @@ function Contact() {
       return;
     }
 
-    // Logique de soumission du formulaire
-    // Ici, vous pouvez intégrer une API ou un service comme EmailJS
     console.log('Formulaire soumis:', formData);
 
-    // Réinitialisation du formulaire et mise à jour de l'état de soumission
     setFormData({
       name: '',
       email: '',
@@ -55,14 +55,28 @@ function Contact() {
   };
 
   return (
-    <Section id="contact">
+    <Section
+      id="contact"
+      sx={{
+        color: theme.palette.secondary.contrastText,
+        padding: '6rem 2rem',
+      }}
+    >
       {/* Titre de la section */}
-      <Typography variant="h4" align="center" gutterBottom sx={{ color: '#183444' }}>
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ color: theme.palette.primary.main }} // Titre blanc
+      >
         Contact
       </Typography>
 
       {/* Description de la section */}
-      <Typography variant="body1" sx={{ mb: 4, textAlign: 'center' }}>
+      <Typography
+        variant="body1"
+        sx={{ mb: 4, textAlign: 'center', color: theme.palette.secondary.contrastText }} // Description blanche
+      >
         N'hésitez pas à me contacter pour plus d'informations ou pour discuter de projets potentiels.
       </Typography>
 
@@ -89,7 +103,11 @@ function Contact() {
                     InputProps={{
                       sx: { 
                         transition: 'transform 0.2s, border-color 0.2s',
+                        color: theme.palette.secondary.contrastText, // Texte blanc
                       },
+                    }}
+                    InputLabelProps={{
+                      sx: { color: theme.palette.secondary.contrastText }, // Label blanc
                     }}
                   />
                 </motion.div>
@@ -114,7 +132,11 @@ function Contact() {
                     InputProps={{
                       sx: { 
                         transition: 'transform 0.2s, border-color 0.2s',
+                        color: theme.palette.secondary.contrastText, // Texte blanc
                       },
+                    }}
+                    InputLabelProps={{
+                      sx: { color: theme.palette.secondary.contrastText }, // Label blanc
                     }}
                   />
                 </motion.div>
@@ -140,7 +162,11 @@ function Contact() {
                     InputProps={{
                       sx: { 
                         transition: 'transform 0.2s, border-color 0.2s',
+                        color: theme.palette.secondary.contrastText, // Texte blanc
                       },
+                    }}
+                    InputLabelProps={{
+                      sx: { color: theme.palette.secondary.contrastText }, // Label blanc
                     }}
                   />
                 </motion.div>
@@ -148,7 +174,7 @@ function Contact() {
 
               {/* Bouton de soumission */}
               <Grid item xs={12} sx={{ textAlign: 'center' }}>
-                <Button type="submit" variant="contained" color="secondary">
+                <Button type="submit" variant="contained" color="primary">
                   Envoyer
                 </Button>
               </Grid>
@@ -177,18 +203,22 @@ function Contact() {
 
       {/* Liens vers les réseaux sociaux */}
       <Box sx={{ mt: 6, textAlign: 'center' }}>
-        <Typography variant="h6" gutterBottom>
+        <Typography
+          variant="h6"
+          gutterBottom
+          sx={{ color: theme.palette.secondary.contrastText }} // Texte blanc
+        >
           Retrouvez-moi sur
         </Typography>
         <Box>
           <Link href="mailto:votre.email@example.com" target="_blank" rel="noopener" sx={{ mx: 1 }}>
-            <EmailIcon fontSize="large" color="secondary" />
+            <EmailIcon fontSize="large" color="primary" /> {/* Icône bleue */}
           </Link>
           <Link href="https://www.linkedin.com/in/votre-profil" target="_blank" rel="noopener" sx={{ mx: 1 }}>
-            <LinkedInIcon fontSize="large" color="secondary" />
+            <LinkedInIcon fontSize="large" color="primary" /> {/* Icône bleue */}
           </Link>
           <Link href="https://github.com/votre-utilisateur" target="_blank" rel="noopener" sx={{ mx: 1 }}>
-            <GitHubIcon fontSize="large" color="secondary" />
+            <GitHubIcon fontSize="large" color="primary" /> {/* Icône bleue */}
           </Link>
         </Box>
       </Box>

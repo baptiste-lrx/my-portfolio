@@ -2,8 +2,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-
-// Importez votre image de fond unique
 import backgroundImage from '../assets/images/wickedbackground.svg'; 
 
 function MainContent({ children }) {
@@ -13,14 +11,14 @@ function MainContent({ children }) {
     <Box
       sx={{
         flex: 1,
-        padding: '0',
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        minHeight: '100vh', // S'assure que le fond couvre toute la hauteur
-        paddingTop: '4rem', // Ajustez selon vos besoins
-        paddingBottom: '4rem', // Ajustez selon vos besoins
+        minHeight: '100vh',
+        paddingTop: { xs: '2rem', md: '4rem' },
+        paddingBottom: { xs: '2rem', md: '4rem' },
+        backgroundColor: theme.palette.background.default, // Fallback couleur
       }}
     >
       {children}

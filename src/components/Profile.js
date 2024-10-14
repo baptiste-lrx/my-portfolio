@@ -3,22 +3,17 @@ import React from 'react';
 import { Typography, Avatar, Grid, useTheme, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import Section from './Section';
-
-// Importation de votre photo de profil depuis 'public'
-import profileImage from '../assets/profil/profil.jpeg'; // Remplacez par le chemin réel
+import profileImage from '../assets/profil/profil.jpeg';
 
 function Profile() {
   const theme = useTheme();
-
-  // Détection des petits écrans pour ajuster les styles
   const isSmallScreen = useTheme().breakpoints.down('sm');
 
-  // Variantes d'animation pour Framer Motion
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.3, // Délai entre les animations des enfants
+        staggerChildren: 0.3,
       },
     },
   };
@@ -33,7 +28,7 @@ function Profile() {
     visible: { scale: 1, transition: { duration: 0.8, ease: 'easeOut' } },
     hover: { 
       scale: 1.05,
-      rotate: 5, // Légère rotation lors du survol
+      rotate: 5,
       boxShadow: theme.shadows[12],
       transition: { duration: 0.3 },
     },
@@ -45,13 +40,12 @@ function Profile() {
       noMarginTop
       sx={{
         position: 'relative',
-        backgroundColor: '#103444',
+        backgroundColor: theme.palette.background.blue,
         padding: '6rem 2rem',
-        color: theme.palette.getContrastText('#103444'),
+        color: theme.palette.getContrastText(theme.palette.background.blue),
         overflow: 'hidden',
       }}
     >
-      {/* Décorations ou éléments graphiques optionnels */}
       <Box
         sx={{
           position: 'absolute',
@@ -71,9 +65,8 @@ function Profile() {
         justifyContent="center"
         position="relative"
         zIndex={2}
-        direction={{ xs: 'column', md: 'row' }} // Column sur petits écrans, Row sur moyens et grands
+        direction={{ xs: 'column', md: 'row' }}
       >
-        {/* Photo de Profil Animée */}
         <Grid item xs={12} md={4} sx={{ textAlign: { xs: 'center', md: 'right' }, paddingLeft: { md: '2rem' } }}>
           <motion.div
             variants={avatarVariants}
@@ -90,13 +83,12 @@ function Profile() {
                 border: `4px solid ${theme.palette.secondary.main}`,
                 boxShadow: theme.shadows[10],
                 transition: 'transform 0.3s ease-in-out',
-                margin: isSmallScreen ? '0 auto' : '0', // Centrer sur petits écrans
+                margin: isSmallScreen ? '0 auto' : '0',
               }}
             />
           </motion.div>
         </Grid>
 
-        {/* Informations de Profil Animées */}
         <Grid item xs={12} md={8} sx={{ paddingRight: { md: '2rem' } }}>
           <motion.div
             variants={containerVariants}
@@ -110,7 +102,7 @@ function Profile() {
                 sx={{
                   textAlign: { xs: 'center', md: 'left' },
                   fontWeight: 700,
-                  color: theme.palette.secondary.main,
+                  color: theme.palette.secondary.main, // Blanc sur fond bleu
                 }}
               >
                 Baptiste Le Roux
@@ -122,7 +114,7 @@ function Profile() {
                 variant="h5"
                 sx={{
                   textAlign: { xs: 'center', md: 'left' },
-                  color: '#ffffff',
+                  color: theme.palette.secondary.main, // Blanc sur fond bleu
                 }}
               >
                 Ingénieur en Systèmes Embarqués
@@ -135,7 +127,7 @@ function Profile() {
                 sx={{
                   marginTop: '2rem',
                   textAlign: { xs: 'center', md: 'left' },
-                  color: '#e0e0e0',
+                  color: theme.palette.secondary.main, // Blanc sur fond bleu
                 }}
               >
                 Passionné par le développement de systèmes embarqués et les technologies innovantes. Je possède une solide expérience dans la conception, le développement et l'optimisation de solutions embarquées pour divers secteurs. Toujours en quête de nouveaux défis, je m'efforce d'améliorer constamment mes compétences techniques et de contribuer efficacement aux projets de mon équipe.
@@ -149,7 +141,7 @@ function Profile() {
                   sx={{
                     fontStyle: 'italic',
                     textAlign: { xs: 'center', md: 'left' },
-                    color: '#b0bec5',
+                    color: theme.palette.secondary.main, // Blanc sur fond bleu
                   }}
                 >
                   "Le vent se lève, il faut tenter de vivre."
@@ -158,7 +150,7 @@ function Profile() {
                   variant="subtitle1"
                   sx={{
                     textAlign: { xs: 'center', md: 'left' },
-                    color: '#b0bec5',
+                    color: theme.palette.secondary.main, // Blanc sur fond bleu
                   }}
                 >
                   - Paul Valéry (popularisé par le film de Hayao Miyazaki)

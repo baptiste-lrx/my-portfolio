@@ -1,14 +1,13 @@
 // src/components/Projects.js
 import React from 'react';
-import { Typography, Card, CardContent, CardMedia, Button, Box, useTheme } from '@mui/material'; // Ajout de useTheme
+import { Typography, Card, CardContent, CardMedia, Button, Box, useTheme } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import image1 from '../assets/images/test2.png'; // Assurez-vous que le chemin est correct
+import image1 from '../assets/images/test2.png';
 
-// Liste des projets
 const projects = [
   {
     title: 'Détection d\'objets avec Raspberry Pi',
@@ -34,25 +33,24 @@ const projects = [
 function Projects() {
   const theme = useTheme();
 
-  // Paramètres du carousel
   const settings = {
     dots: true,
-    infinite: projects.length > 3, // Infini si plus de 3 projets
+    infinite: projects.length > 3,
     speed: 500,
     slidesToShow: Math.min(projects.length, 3),
     slidesToScroll: 1,
-    centerMode: false, // Désactiver centerMode pour éviter les effets de flou
-    arrows: true, // Ajouter les flèches de navigation
+    centerMode: false,
+    arrows: true,
     responsive: [
       {
-        breakpoint: 960, // Tablets
+        breakpoint: 960,
         settings: {
           slidesToShow: Math.min(projects.length, 2),
           centerMode: false,
         },
       },
       {
-        breakpoint: 600, // Mobiles
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           centerMode: false,
@@ -61,7 +59,6 @@ function Projects() {
     ],
   };
 
-  // Variants pour Framer Motion
   const cardVariants = {
     initial: {
       opacity: 0,
@@ -89,7 +86,12 @@ function Projects() {
 
   return (
     <Box sx={{ width: '100%', padding: '2rem 0' }}>
-      <Typography variant="h4" align="center" gutterBottom sx={{ color: '#183444', marginBottom: '2rem' }}>
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ color: theme.palette.primary.main, marginBottom: '2rem' }}
+      >
         Projets Personnels
       </Typography>
       <Slider {...settings}>
@@ -106,26 +108,25 @@ function Projects() {
                 sx={{
                   maxWidth: 345,
                   margin: '0 auto',
-                  border: '1px solid #e0e0e0',
+                  border: `1px solid ${theme.palette.divider}`,
                   transition: 'transform 0.3s, box-shadow 0.3s',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  height: '100%', // Assure une hauteur uniforme
+                  height: '100%',
                 }}
               >
-                {/* CardMedia directement sans Box */}
                 <CardMedia
                   component="img"
-                  height="180" // Ajustez la hauteur selon vos besoins
+                  height="180"
                   image={project.image}
                   alt={`Image du projet ${project.title}`}
                   sx={{
-                    objectFit: 'cover', // 'cover' pour que l'image couvre toute la zone sans déformation
+                    objectFit: 'cover',
                   }}
                 />
                 <CardContent sx={{ padding: '1rem 1.5rem' }}>
-                  <Typography variant="h6" gutterBottom sx={{ color: '#183444', fontSize: '1.2rem' }}>
+                  <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.main, fontSize: '1.2rem' }}>
                     {project.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.95rem' }}>
@@ -135,15 +136,17 @@ function Projects() {
                 <Box sx={{ textAlign: 'center', paddingBottom: '0.5rem' }}>
                   <Button
                     variant="contained"
-                    color="secondary"
+                    color="primary"
                     href={project.link}
                     target="_blank"
                     startIcon={<GitHubIcon />}
                     sx={{
                       textTransform: 'none',
                       fontWeight: 'bold',
+                      color: theme.palette.primary.contrastText,
+                      backgroundColor: theme.palette.primary.main,
                       '&:hover': {
-                        backgroundColor: theme.palette.secondary.dark,
+                        backgroundColor: theme.palette.primary.dark,
                       },
                     }}
                   >
