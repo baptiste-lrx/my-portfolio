@@ -1,6 +1,6 @@
 // src/components/Experience.js
 import React from 'react';
-import { Typography, Box, Paper, useTheme } from '@mui/material';
+import { Typography, Box, Paper, useTheme, useMediaQuery } from '@mui/material';
 import {
   Timeline,
   TimelineItem,
@@ -8,7 +8,6 @@ import {
   TimelineConnector,
   TimelineContent,
   TimelineOppositeContent,
-  TimelineDot,
 } from '@mui/lab';
 
 import { motion } from 'framer-motion';
@@ -39,7 +38,8 @@ const experiences = [
     description: [
       'Prototypage d’un casque EEG avec deux électrodes mobiles',
       'IHM de contrôle et d’analyse en PyQt et Firmware du casque en C++ embarqué',
-      'Amélioration d’un code existant pour contrôler un drone par la pensée',],
+      'Amélioration d’un code existant pour contrôler un drone par la pensée',
+    ],
   },
   {
     company: 'Thales DMS',
@@ -53,7 +53,7 @@ const experiences = [
     ],
   },
   {
-    company: 'Grange du ToulBoss',
+    company: 'Restaurant Grange du ToulBoss',
     logo: logo3,
     period: 'Avril 2021 - Aout 2021',
     role: 'Crêpier en restauration',
@@ -67,15 +67,22 @@ const experiences = [
 
 function Experience() {
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Section id="experience">
-      <Typography variant="h4" align="center" gutterBottom sx={{ color: '#183444' }}>
-      Expérience Professionnelle
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ color: '#183444', marginBottom: '2rem' }}
+      >
+        Expérience Professionnelle
       </Typography>
       <Timeline position="alternate">
         {experiences.map((exp, index) => (
           <TimelineItem key={index}>
+            {/* Contenu Opposé (Période) */}
             <TimelineOppositeContent
               sx={{ m: 'auto 0' }}
               align={index % 2 === 0 ? 'right' : 'left'}
@@ -84,22 +91,46 @@ function Experience() {
             >
               <Typography variant="subtitle2">{exp.period}</Typography>
             </TimelineOppositeContent>
+
+            {/* Séparateur avec Logo Agrandi */}
             <TimelineSeparator>
+              {/* Connecteur Avant */}
               {index !== 0 && <TimelineConnector />}
-              <TimelineDot
-                sx={{
-                  p: 0,
-                  backgroundColor: 'transparent',
-                }}
+
+              {/* Conteneur du Logo avec Animation */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <img
-                  src={exp.logo}
-                  alt={`Logo de ${exp.company}`}
-                  style={{ width: 50, height: 50, borderRadius: '50%' }}
-                />
-              </TimelineDot>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 80, // Taille agrandie du conteneur
+                    height: 80,
+                    margin: '0 auto', // Centrer horizontalement
+                  }}
+                >
+                  <img
+                    src={exp.logo}
+                    alt={`Logo de ${exp.company}`}
+                    style={{
+                      width: '90%', // Ajuster la taille de l'image pour une meilleure visibilité
+                      height: '90%',
+                      objectFit: 'contain', // S'assurer que l'image conserve son aspect ratio
+                    }}
+                  />
+                </Box>
+              </motion.div>
+
+              {/* Connecteur Après */}
               {index !== experiences.length - 1 && <TimelineConnector />}
             </TimelineSeparator>
+
+            {/* Contenu Principal (Rôle, Entreprise, Description) */}
             <TimelineContent sx={{ py: '12px', px: 2 }}>
               <motion.div
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -122,6 +153,7 @@ function Experience() {
                   <Typography variant="subtitle1" color="text.secondary">
                     {exp.company}
                   </Typography>
+                  {/* Description sous forme de liste */}
                   <ul style={{ marginTop: '1rem', paddingLeft: '1.2rem' }}>
                     {exp.description.map((item, idx) => (
                       <li key={idx} style={{ marginBottom: '0.5rem' }}>

@@ -1,50 +1,53 @@
 // src/components/Projects.js
 import React from 'react';
-import { Typography, Card, CardContent, CardMedia, Button, Box } from '@mui/material';
+import { Typography, Card, CardContent, CardMedia, Button, Box, useTheme } from '@mui/material'; // Ajout de useTheme
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import image1 from '../assets/images/test2.png'; // Assurez-vous que le chemin est correct
 
 // Liste des projets
 const projects = [
   {
     title: 'Détection d\'objets avec Raspberry Pi',
     description: 'Un projet qui utilise OpenCV et un Raspberry Pi pour détecter des objets en temps réel.',
-    image: '/assets/projects/raspberry-pi-opencv.jpg',
+    image: image1,
     link: 'https://github.com/votre-utilisateur/detection-objets-raspberrypi',
   },
   {
     title: 'Application Mobile de Contrôle de Drones',
     description: 'Développement d\'une application mobile pour contrôler des drones à distance.',
-    image: '/assets/projects/drone-control-app.jpg',
+    image: image1,
     link: 'https://github.com/votre-utilisateur/controle-drone-app',
   },
   {
     title: 'Système Domotique avec Arduino',
     description: 'Création d\'un système domotique pour contrôler les lumières et les volets via Arduino.',
-    image: '/assets/projects/arduino-home-automation.jpg',
+    image: image1,
     link: 'https://github.com/votre-utilisateur/domotique-arduino',
   },
   // Ajoutez d'autres projets ici
 ];
 
 function Projects() {
+  const theme = useTheme();
+
   // Paramètres du carousel
   const settings = {
     dots: true,
     infinite: projects.length > 3, // Infini si plus de 3 projets
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: Math.min(projects.length, 3),
     slidesToScroll: 1,
-    centerMode: projects.length > 3, // Centre si plus de 3 projets
-    centerPadding: '0',
+    centerMode: false, // Désactiver centerMode pour éviter les effets de flou
+    arrows: true, // Ajouter les flèches de navigation
     responsive: [
       {
         breakpoint: 960, // Tablets
         settings: {
-          slidesToShow: 2,
+          slidesToShow: Math.min(projects.length, 2),
           centerMode: false,
         },
       },
@@ -61,12 +64,22 @@ function Projects() {
   // Variants pour Framer Motion
   const cardVariants = {
     initial: {
+      opacity: 0,
+      y: 50,
+      scale: 0.95,
+    },
+    whileInView: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+      },
     },
     hover: {
       scale: 1.05,
-      boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)',
+      boxShadow: theme.shadows[12],
       transition: {
         duration: 0.3,
         ease: 'easeInOut',
@@ -75,17 +88,19 @@ function Projects() {
   };
 
   return (
-    <Box sx={{ width: '100%', padding: '2rem 0' }}> {/* Réduit le padding vertical */}
-      <Typography variant="h4" align="center" gutterBottom sx={{ color: '#183444' }}>
+    <Box sx={{ width: '100%', padding: '2rem 0' }}>
+      <Typography variant="h4" align="center" gutterBottom sx={{ color: '#183444', marginBottom: '2rem' }}>
         Projets Personnels
       </Typography>
       <Slider {...settings}>
         {projects.map((project, index) => (
-          <Box key={index} px={1}> {/* Réduit le padding horizontal */}
+          <Box key={index} px={1}>
             <motion.div
-              initial="initial"
-              whileHover="hover"
               variants={cardVariants}
+              initial="initial"
+              whileInView="whileInView"
+              whileHover="hover"
+              viewport={{ once: true }}
             >
               <Card
                 sx={{
@@ -96,17 +111,20 @@ function Projects() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  // height: 'auto', // Assure une hauteur automatique
+                  height: '100%', // Assure une hauteur uniforme
                 }}
               >
+                {/* CardMedia directement sans Box */}
                 <CardMedia
                   component="img"
-                  height="120" // Réduit la hauteur de l'image
+                  height="180" // Ajustez la hauteur selon vos besoins
                   image={project.image}
-                  alt={`Image du ${project.title}`}
-                  sx={{ objectFit: 'cover' }} // Assure que l'image couvre bien la zone sans distorsion
+                  alt={`Image du projet ${project.title}`}
+                  sx={{
+                    objectFit: 'cover', // 'cover' pour que l'image couvre toute la zone sans déformation
+                  }}
                 />
-                <CardContent sx={{ padding: '1rem 1.5rem' }}> {/* Réduit le padding */}
+                <CardContent sx={{ padding: '1rem 1.5rem' }}>
                   <Typography variant="h6" gutterBottom sx={{ color: '#183444', fontSize: '1.2rem' }}>
                     {project.title}
                   </Typography>
@@ -114,7 +132,7 @@ function Projects() {
                     {project.description}
                   </Typography>
                 </CardContent>
-                <Box sx={{ textAlign: 'center', paddingBottom: '0.5rem' }}> {/* Réduit le padding en bas */}
+                <Box sx={{ textAlign: 'center', paddingBottom: '0.5rem' }}>
                   <Button
                     variant="contained"
                     color="secondary"
@@ -125,7 +143,7 @@ function Projects() {
                       textTransform: 'none',
                       fontWeight: 'bold',
                       '&:hover': {
-                        backgroundColor: theme => theme.palette.secondary.dark,
+                        backgroundColor: theme.palette.secondary.dark,
                       },
                     }}
                   >
