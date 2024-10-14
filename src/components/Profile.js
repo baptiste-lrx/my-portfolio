@@ -1,13 +1,13 @@
 // src/components/Profile.js
 import React from 'react';
 import { Typography, Avatar, Grid, useTheme, Box } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Section from './Section';
 import profileImage from '../assets/profil/profil.jpeg';
 
 function Profile() {
   const theme = useTheme();
-  const isSmallScreen = useTheme().breakpoints.down('sm');
+  const shouldReduceMotion = useReducedMotion();
 
   const containerVariants = {
     hidden: {},
@@ -18,21 +18,25 @@ function Profile() {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  };
+  const itemVariants = shouldReduceMotion
+    ? {}
+    : {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+      };
 
-  const avatarVariants = {
-    hidden: { scale: 0 },
-    visible: { scale: 1, transition: { duration: 0.8, ease: 'easeOut' } },
-    hover: { 
-      scale: 1.05,
-      rotate: 5,
-      boxShadow: theme.shadows[12],
-      transition: { duration: 0.3 },
-    },
-  };
+  const avatarVariants = shouldReduceMotion
+    ? {}
+    : {
+        hidden: { scale: 0 },
+        visible: { scale: 1, transition: { duration: 0.8, ease: 'easeOut' } },
+        hover: { 
+          scale: 1.05,
+          rotate: 5,
+          boxShadow: theme.shadows[12],
+          transition: { duration: 0.3 },
+        },
+      };
 
   return (
     <Section
@@ -42,7 +46,7 @@ function Profile() {
         position: 'relative',
         backgroundColor: theme.palette.background.blue,
         padding: '6rem 2rem',
-        color: theme.palette.getContrastText(theme.palette.background.blue),
+        color: theme.palette.secondary.contrastText, // Texte blanc
         overflow: 'hidden',
       }}
     >
@@ -80,10 +84,10 @@ function Profile() {
               sx={{
                 width: { xs: 200, md: 250 },
                 height: { xs: 200, md: 250 },
-                border: `4px solid ${theme.palette.secondary.main}`,
+                border: `4px solid ${theme.palette.secondary.main}`, // Bordure blanche
                 boxShadow: theme.shadows[10],
                 transition: 'transform 0.3s ease-in-out',
-                margin: isSmallScreen ? '0 auto' : '0',
+                margin: '0 auto',
               }}
             />
           </motion.div>
@@ -102,7 +106,7 @@ function Profile() {
                 sx={{
                   textAlign: { xs: 'center', md: 'left' },
                   fontWeight: 700,
-                  color: theme.palette.secondary.main, // Blanc sur fond bleu
+                  color: theme.palette.secondary.main, // Texte blanc
                 }}
               >
                 Baptiste Le Roux
@@ -114,7 +118,7 @@ function Profile() {
                 variant="h5"
                 sx={{
                   textAlign: { xs: 'center', md: 'left' },
-                  color: theme.palette.secondary.main, // Blanc sur fond bleu
+                  color: theme.palette.secondary.main, // Texte blanc
                 }}
               >
                 Ingénieur en Systèmes Embarqués
@@ -127,7 +131,7 @@ function Profile() {
                 sx={{
                   marginTop: '2rem',
                   textAlign: { xs: 'center', md: 'left' },
-                  color: theme.palette.secondary.main, // Blanc sur fond bleu
+                  color: theme.palette.secondary.main, // Texte blanc
                 }}
               >
                 Passionné par le développement de systèmes embarqués et les technologies innovantes. Je possède une solide expérience dans la conception, le développement et l'optimisation de solutions embarquées pour divers secteurs. Toujours en quête de nouveaux défis, je m'efforce d'améliorer constamment mes compétences techniques et de contribuer efficacement aux projets de mon équipe.
@@ -141,7 +145,7 @@ function Profile() {
                   sx={{
                     fontStyle: 'italic',
                     textAlign: { xs: 'center', md: 'left' },
-                    color: theme.palette.secondary.main, // Blanc sur fond bleu
+                    color: theme.palette.secondary.main, // Texte blanc
                   }}
                 >
                   "Le vent se lève, il faut tenter de vivre."
@@ -150,7 +154,7 @@ function Profile() {
                   variant="subtitle1"
                   sx={{
                     textAlign: { xs: 'center', md: 'left' },
-                    color: theme.palette.secondary.main, // Blanc sur fond bleu
+                    color: theme.palette.secondary.main, // Texte blanc
                   }}
                 >
                   - Paul Valéry (popularisé par le film de Hayao Miyazaki)

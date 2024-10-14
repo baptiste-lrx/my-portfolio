@@ -22,7 +22,7 @@ const experiences = [
     period: 'Septembre 2021 - Septembre 2024',
     role: 'Apprenti ingénieur systèmes radios HF',
     description: [
-      'Développement dun simulateur en Python permettant de modéliser le comportement d’un algorithme intégré dans un poste de radio',
+      'Développement d’un simulateur en Python permettant de modéliser le comportement d’un algorithme intégré dans un poste de radio',
       'Parsage XML de fichiers Syslog et analyse de données',
       'Modélisation d’un système via le logiciel Capella basé sur la méthode MBSE',
       'Approfondissement des langages de programmation Python et Bash',
