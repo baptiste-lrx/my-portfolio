@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // Importez votre image de fond unique
-import backgroundImage from '../assets/images/wickedbackground.svg'; // Remplacez par le chemin réel
+import backgroundImage from '../assets/images/wickedbackground.svg'; 
 
 function MainContent({ children }) {
   const theme = useTheme();
@@ -12,6 +12,8 @@ function MainContent({ children }) {
   return (
     <Box
       sx={{
+        flex: 1,
+        padding: '0',
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
