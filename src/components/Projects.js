@@ -6,25 +6,28 @@ import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import image1 from '../assets/images/test2.png';
+import image1 from '../assets/projects/Logo1.png';
+import image2 from '../assets/projects/logo2.jpg';
+import image3 from '../assets/projects/logo3.jpg';
+import Section from './Section';
 
 const projects = [
   {
-    title: 'Détection d\'objets avec Raspberry Pi',
-    description: 'Un projet qui utilise OpenCV et un Raspberry Pi pour détecter des objets en temps réel.',
-    image: image1,
-    link: 'https://github.com/votre-utilisateur/detection-objets-raspberrypi',
+    title: 'Traitement du signal en Rust - génération de partition de piano',
+    description: 'Un projet qui vise à traiter un signal audio en temps-réel',
+    image: image2,
+    link: 'https://github.com/baptiste-lrx/Real-time-audio-signal-processing',
   },
   {
-    title: 'Application Mobile de Contrôle de Drones',
-    description: 'Développement d\'une application mobile pour contrôler des drones à distance.',
+    title: 'Création d\'un nouveau langage d\'Animation SVG',
+    description: 'Développement d\'un nouveau langage pour rendre accessible l\'animation d\'images SVG',
     image: image1,
-    link: 'https://github.com/votre-utilisateur/controle-drone-app',
+    link: 'https://github.com/Vidoux/SketchAnimate',
   },
   {
-    title: 'Système Domotique avec Arduino',
-    description: 'Création d\'un système domotique pour contrôler les lumières et les volets via Arduino.',
-    image: image1,
+    title: 'Création d\'chatbot spécialisé dans les relations humaines',
+    description: 'Le but de se projet est de voir jusqu\'ou peut on aller dans l\'entrainement d\'pour converser de manière informel',
+    image: image3,
     link: 'https://github.com/votre-utilisateur/domotique-arduino',
   },
   // Ajoutez d'autres projets ici
@@ -85,80 +88,85 @@ function Projects() {
   };
 
   return (
-    <Box sx={{ width: '100%', padding: '2rem 0' }}>
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
-        sx={{ color: theme.palette.primary.main, marginBottom: '2rem' }}
-      >
-        Projets Personnels
-      </Typography>
-      <Slider {...settings}>
-        {projects.map((project, index) => (
-          <Box key={index} px={1}>
-            <motion.div
-              variants={cardVariants}
-              initial="initial"
-              whileInView="whileInView"
-              whileHover="hover"
-              viewport={{ once: true }}
-            >
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  margin: '0 auto',
-                  border: `1px solid ${theme.palette.divider}`,
-                  transition: 'transform 0.3s, box-shadow 0.3s',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%',
-                }}
+    <Section
+      id="projects"
+    >
+      <Box sx={{ width: '100%', padding: '2rem 0' }}>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          sx={{ color: theme.palette.primary.main, marginBottom: '2rem' }}
+        >
+          Projets Personnels
+        </Typography>
+        <Slider {...settings}>
+          {projects.map((project, index) => (
+            <Box key={index} px={1}>
+              <motion.div
+                variants={cardVariants}
+                initial="initial"
+                whileInView="whileInView"
+                whileHover="hover"
+                viewport={{ once: true }}
               >
-                <CardMedia
-                  component="img"
-                  height="180"
-                  image={project.image}
-                  alt={`Image du projet ${project.title}`}
+                <Card
                   sx={{
-                    objectFit: 'cover',
+                    maxWidth: 345,
+                    margin: '0 auto',
+                    border: `1px solid ${theme.palette.divider}`,
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
                   }}
-                />
-                <CardContent sx={{ padding: '1rem 1.5rem' }}>
-                  <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.main, fontSize: '1.2rem' }}>
-                    {project.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.95rem' }}>
-                    {project.description}
-                  </Typography>
-                </CardContent>
-                <Box sx={{ textAlign: 'center', paddingBottom: '0.5rem' }}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    href={project.link}
-                    target="_blank"
-                    startIcon={<GitHubIcon />}
+                >
+                  <CardMedia
+                    component="img"
+                    height="180"
+                    image={project.image}
+                    alt={`Image du projet ${project.title}`}
                     sx={{
-                      textTransform: 'none',
-                      fontWeight: 'bold',
-                      color: theme.palette.primary.contrastText,
-                      backgroundColor: theme.palette.primary.main,
-                      '&:hover': {
-                        backgroundColor: theme.palette.primary.dark,
-                      },
+                      objectFit: 'cover',
                     }}
-                  >
-                    Voir sur GitHub
-                  </Button>
-                </Box>
-              </Card>
-            </motion.div>
-          </Box>
-        ))}
-      </Slider>
-    </Box>
+                  />
+                  <CardContent sx={{ padding: '1rem 1.5rem' }}>
+                    <Typography variant="h6" gutterBottom sx={{ color: theme.palette.primary.main, fontSize: '1.2rem' }}>
+                      {project.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.95rem' }}>
+                      {project.description}
+                    </Typography>
+                  </CardContent>
+                  <Box sx={{ textAlign: 'center', paddingBottom: '0.5rem' }}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      href={project.link}
+                      target="_blank"
+                      startIcon={<GitHubIcon />}
+                      sx={{
+                        textTransform: 'none',
+                        fontWeight: 'bold',
+                        color: theme.palette.primary.contrastText,
+                        backgroundColor: theme.palette.primary.main,
+                        '&:hover': {
+                          backgroundColor: theme.palette.primary.dark,
+                        },
+                      }}
+                    >
+                      Voir sur GitHub
+                    </Button>
+                  </Box>
+                </Card>
+              </motion.div>
+            </Box>
+          ))}
+        </Slider>
+      </Box>
+    </Section>
+
   );
 }
 

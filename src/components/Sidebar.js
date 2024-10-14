@@ -3,37 +3,34 @@ import React from 'react';
 import { Box, Typography, Card, CardMedia, CardContent, Link } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-import image1 from '../assets/images/test2.png';
+import image1 from '../assets/images/test4.png';
 import image2 from '../assets/images/test3.png';
+import image3 from '../assets/images/test5.png';
+import image4 from '../assets/images/test6.png';
 
 function Sidebar() {
   const theme = useTheme();
 
   const journals = [
     {
-      title: 'Titre de la Revue 1',
+      title: 'Voir plus',
       image: image1,
       link: 'https://lien-vers-revue-1.com',
     },
     {
-      title: 'Titre de la Revue 2',
+      title: 'Voir plus',
       image: image2,
       link: 'https://lien-vers-revue-2.com',
     },
     {
-      title: 'Titre de la Revue 3',
-      image: image1,
-      link: 'https://lien-vers-revue-3.com',
+      title: 'Voir plus',
+      image: image3,
+      link: 'https://lien-vers-revue-2.com',
     },
     {
-      title: 'Titre de la Revue 4',
-      image: image2,
-      link: 'https://lien-vers-revue-4.com',
-    },
-    {
-      title: 'Titre de la Revue 5',
-      image: image1,
-      link: 'https://lien-vers-revue-5.com',
+      title: 'Voir plus',
+      image: image4,
+      link: 'https://lien-vers-revue-2.com',
     },
     // Ajoutez d'autres revues ici
   ];
@@ -82,7 +79,7 @@ function Sidebar() {
           viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
           whileHover="hover"
-          style={{ marginBottom: '1.5rem', cursor: 'pointer', overflow: 'hidden' }}
+          style={{marginBottom: '1.5rem', cursor: 'pointer', overflow: 'hidden' }}
         >
           <Link href={journal.link} target="_blank" rel="noopener" underline="none">
             <Card
@@ -113,7 +110,7 @@ function Sidebar() {
                   left: 0,
                   right: 0,
                   backgroundColor: `rgba(24, 52, 68, 0.7)`, // Bleu foncé avec opacité
-                  color: theme.palette.secondary.contrastText, // Blanc
+                  color: "white", // Blanc
                   padding: '0.5rem',
                 }}
               >
