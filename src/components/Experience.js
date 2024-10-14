@@ -10,6 +10,7 @@ import {
   TimelineOppositeContent,
   TimelineDot,
 } from '@mui/lab';
+
 import { motion } from 'framer-motion';
 import Section from './Section';
 import logo1 from '../assets/logos/thales.png';
@@ -69,8 +70,8 @@ function Experience() {
 
   return (
     <Section id="experience">
-      <Typography variant="h4" gutterBottom sx={{ textAlign: 'center' }}>
-        Expérience Professionnelle
+      <Typography variant="h4" align="center" gutterBottom sx={{ color: '#183444' }}>
+      Expérience Professionnelle
       </Typography>
       <Timeline position="alternate">
         {experiences.map((exp, index) => (

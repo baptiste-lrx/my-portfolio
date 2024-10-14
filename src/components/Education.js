@@ -58,8 +58,8 @@ function Education() {
 
   return (
     <Section id="education">
-      <Typography variant="h4" gutterBottom align="center">
-        Parcours Académique
+      <Typography variant="h4" align="center" gutterBottom sx={{ color: '#183444' }}>
+      Parcours Académique
       </Typography>
       <Timeline position="alternate">
         {education.map((edu, index) => (

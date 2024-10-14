@@ -44,7 +44,7 @@ function Profile() {
               textAlign: 'center',
             }}
           >
-            Votre Nom
+            Baptiste Le Roux
           </Typography>
           <Typography
             variant="h5"
