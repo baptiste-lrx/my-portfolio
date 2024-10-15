@@ -14,12 +14,12 @@ import Section from './Section';
 const projects = [
   {
     title: 'Traitement du signal en Rust - génération de partition de piano',
-    description: 'Un projet qui vise à traiter un signal audio en temps-réel',
+    description: 'Un projet qui vise à traiter un signal audio en temps-réel, et le transformer en partition musciale jouable',
     image: image2,
     link: 'https://github.com/baptiste-lrx/Real-time-audio-signal-processing',
   },
   {
-    title: 'Création d\'un nouveau langage d\'Animation SVG',
+    title: 'Création d\'un nouveau langage d\'Animation et de manipulation de SVG',
     description: 'Développement d\'un nouveau langage pour rendre accessible l\'animation d\'images SVG',
     image: image1,
     link: 'https://github.com/Vidoux/SketchAnimate',
