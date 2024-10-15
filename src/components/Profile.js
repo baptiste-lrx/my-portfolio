@@ -76,7 +76,6 @@ function Profile() {
             variants={avatarVariants}
             initial="hidden"
             animate="visible"
-            whileHover="hover"
           >
             <Avatar
               alt="Baptiste Le Roux"
