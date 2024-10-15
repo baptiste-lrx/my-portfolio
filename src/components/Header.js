@@ -136,7 +136,7 @@ function Header({ onThemeChange, isDarkMode }) {
                   fontWeight: 'bold',
                   color: '#183444',
                   '&:hover': {
-                    backgroundColor: theme.palette.secondary.main,
+                    backgroundColor: '#5b6f7a',
                     color: '#ffffff',
                   },
                 }}
@@ -144,12 +144,7 @@ function Header({ onThemeChange, isDarkMode }) {
                 {item.text}
               </Button>
             ))}
-            <Switch
-              checked={isDarkMode}
-              onChange={onThemeChange}
-              color="default"
-              sx={{ marginLeft: 2 }}
-            />
+            
           </Box>
           <IconButton
             color="inherit"

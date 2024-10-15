@@ -13,13 +13,13 @@ import { motion } from 'framer-motion';
 import Section from './Section';
 import logo1 from '../assets/logos/thales.png';
 import logo2 from '../assets/logos/ntnu.png';
-import logo3 from '../assets/logos/images.jpeg';
+import logo3 from '../assets/logos/images.png';
 
 const experiences = [
   {
     company: 'Thales SIX',
     logo: logo1,
-    period: 'Septembre 2021 - Septembre 2024',
+    period: 'Septembre 2021 - 2024',
     role: 'Apprenti ingénieur systèmes radios HF',
     description: [
       'Développement d’un simulateur en Python permettant de modéliser le comportement d’un algorithme intégré dans un poste de radio',
@@ -60,6 +60,8 @@ const experiences = [
       'Responsable service crêpes',
       'Gestion des stocks',
       'Relationnel client',
+      'Horaires saisonniers',
+      ''
     ],
   },
 ];

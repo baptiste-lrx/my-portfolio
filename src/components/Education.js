@@ -11,7 +11,7 @@ import {
 } from '@mui/lab';
 import { motion } from 'framer-motion';
 import Section from './Section';
-import logo1 from '../assets/logos/enstab.jpg';
+import logo1 from '../assets/logos/enstab.png';
 import logo2 from '../assets/logos/iut.png';
 import logo3 from '../assets/logos/Lyceenaval.png';
 
@@ -19,7 +19,7 @@ const education = [
   {
     institution: 'ENSTA Bretagne',
     logo: logo1,
-    period: '2021 - 2024',
+    period: 'Septembre 2021 - 2024',
     degree: "Diplôme d'ingénieur en systèmes embarqués",
     description: [
       'Informatique embarqué, IA, système d’exploitation, U-Boot, cross compilation...',
@@ -30,7 +30,7 @@ const education = [
   {
     institution: 'IUT Brest-Morlaix',
     logo: logo2,
-    period: '2019 - 2021',
+    period: 'Septembre 2019 - 2021',
     degree: 'DUT Génie Électrique et Informatique Industrielle',
     description: [
       'Conception et mise en œuvre de systèmes électroniques analogiques et numériques',
@@ -42,12 +42,12 @@ const education = [
   {
     institution: 'Lycée Naval',
     logo: logo3,
-    period: '2016 - 2019',
+    period: 'Septembre 2016 - 2019',
     degree: 'Baccalauréat Scientifique',
     description: [
       'Mention, spécialité SVT.',
       'Encadrement militaire',
-      'Initiation systèmes numériques',
+      'Initiation systèmes numériques : projets avec imprimante a3D, Robot Nano, Lego Mindstorm...',
     ],
   },
 ];
