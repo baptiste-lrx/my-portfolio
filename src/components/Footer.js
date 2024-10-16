@@ -16,7 +16,7 @@ function Footer() {
       }}
     >
       <Typography variant="body2">
-        © {new Date().getFullYear()} Baptiste Le Roux. Tous droits réservés.
+        © {new Date().getFullYear()} Baptiste Le Roux. Tous droits réservés. Site créé avec ReactJs
       </Typography>
       <Typography variant="body2">
         <Link href="mailto:votre.email@example.com" color="secondary" underline="hover">
