@@ -136,8 +136,7 @@ function Header({ onThemeChange, isDarkMode }) {
                   fontWeight: 'bold',
                   color: '#183444',
                   '&:hover': {
-                    backgroundColor: '#5b6f7a',
-                    color: '#ffffff',
+                    color: 'gray',
                   },
                 }}
               >
